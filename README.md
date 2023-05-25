@@ -1,4 +1,8 @@
-# Instagram Clone using UIKit
+# Instagram Clone
+
+<br/>
+
+<img width="326" alt="intro" src="https://github.com/scriabinEtude/instagram-clone-uikit/assets/47556543/ff6a6a0b-2da5-4e2a-8358-9022f771be2a">
 
 <br/><br/>
 
@@ -10,6 +14,7 @@
 - SDWebImage
 - YPImagePicker
 - JGProgressHUD
+- StoryBoard를 사용하지 않았습니다.
 
 <br/><br/>
 
