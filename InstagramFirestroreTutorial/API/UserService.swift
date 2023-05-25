@@ -35,6 +35,7 @@ struct UserService {
     static func follow(uid: String, completion: @escaping FirestoreCompletion) {
         guard let currentUid = Auth.auth().currentUser?.uid else { return }
         COLLECTION_FOLLOWING.document(currentUid).collection("user-following").document(uid).setData([:]){ error in
+            if let error = error { print(error.localizedDescription) }
             COLLECTION_FOLLOWERS.document(uid).collection("user-followers").document(currentUid).setData([:], completion: completion)
         }
     }
@@ -42,13 +43,15 @@ struct UserService {
     static func unfollow(uid: String, completion: @escaping FirestoreCompletion) {
         guard let currentUid = Auth.auth().currentUser?.uid else { return }
         COLLECTION_FOLLOWING.document(currentUid).collection("user-following").document(uid).delete(){ error in
+            if let error = error { print(error.localizedDescription) }
             COLLECTION_FOLLOWERS.document(uid).collection("user-followers").document(currentUid).delete(completion: completion)
         }
     }
     
     static func checkIfUsersIsFollowed(uid: String, completion: @escaping(Bool) -> Void){
         guard let currentUid = Auth.auth().currentUser?.uid else { return }
-        COLLECTION_FOLLOWING.document(currentUid).collection("user-follwing").document(uid).getDocument { snapshot, error in
+        COLLECTION_FOLLOWING.document(currentUid).collection("user-following").document(uid).getDocument { snapshot, error in
+            if let error = error { print(error.localizedDescription) }
             guard let isFollowed = snapshot?.exists else { return }
             completion(isFollowed)
         }

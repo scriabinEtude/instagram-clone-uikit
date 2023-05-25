@@ -22,7 +22,7 @@ class SearchController: UIViewController {
     private let searchController = UISearchController(searchResultsController: nil)
     
     private var inSearchMode: Bool {
-        return searchController.isActive && searchController.searchBar.text!.isEmpty
+        return searchController.isActive && !searchController.searchBar.text!.isEmpty
     }
     
     private lazy var collectionView: UICollectionView = {
@@ -109,7 +109,8 @@ extension SearchController: UITableViewDataSource {
 
 extension SearchController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let controller = ProfileController(user: users[indexPath.row])
+        let user = inSearchMode ? filteredUsers[indexPath.row] : users[indexPath.row]
+        let controller = ProfileController(user: user)
         navigationController?.pushViewController(controller, animated: true)
     }
 }

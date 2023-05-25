@@ -58,7 +58,7 @@ class LoginController: UIViewController {
     
     private lazy var forgotPasswordButton: UIButton = {
         let button = UIButton(type: .system)
-        button.attributedTitle(firstPart: "Forgot you password?", secondPart: "Get help signing in.")
+        button.attributedTitle(firstPart: "Forgot your password?", secondPart: "Get help signing in.")
         button.addTarget(self, action: #selector(handleShowResetPassword), for: .touchUpInside)
         return button
     }()

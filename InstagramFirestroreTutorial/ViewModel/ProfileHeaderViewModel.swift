@@ -8,7 +8,7 @@
 import UIKit
 
 struct ProfileHeaderViewModel {
-    let user: User
+    var user: User
     
     var fullname: String {
         return user.fullname
@@ -23,15 +23,15 @@ struct ProfileHeaderViewModel {
             return "Edit Profile"
         }
         
-        return user.isFollowed ? "Following" : "Followed"
+        return user.isFollowed ? "Followed" : "Following"
     }
     
     var followButtonBackgroundColor: UIColor {
-        return user.isCurrentUser ? .white : .systemBlue
+        return user.isCurrentUser || user.isFollowed ? .white : .systemBlue
     }
     
     var followButtonTextColor: UIColor {
-        return user.isCurrentUser ? .black : .white
+        return user.isCurrentUser || user.isFollowed ? .black : .white
     }
     
     var numbersOfFollowers: NSAttributedString {
