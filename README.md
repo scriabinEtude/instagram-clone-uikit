@@ -17,8 +17,8 @@
 
 ### 회원가입
 
-<video width="320" height="240" controls>
-  <source src="./captures/signup.mov" type="video/mp4">
+<video width="320" height="600" controls>
+  <source src="https://github.com/scriabinEtude/instagram-clone-uikit/blob/main/captures/signup.mov" type="video/mp4">
 </video>
 
-<!-- ![signUp]() -->
+![signUp](https://github.com/scriabinEtude/instagram-clone-uikit/blob/main/captures/signup.mov)
